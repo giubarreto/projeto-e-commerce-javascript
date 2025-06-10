@@ -1,4 +1,6 @@
 import leia from 'readline-sync'
+import { ProdutosCabelo } from './src/ProdutosCabelo';
+import { ProdutosUnha } from './src/ProdutosUnha';
 export function main () {
     let opcao: number;
 
@@ -15,7 +17,7 @@ while (true) {
         console.log("            4 - Atualizar produto por numero         ");
         console.log("            5 - formas de pagamento                  ");
         console.log("            6 - adicionar valor aos produtos         ");                    
-        console.log("            7 - verificar lucro                      ");
+        console.log("            7 - verificar faturamento                ");
         console.log("            8 - apagar produto                       ");
         console.log("            9 - Sair do sistema                      ");               
         console.log("                                                     ");
