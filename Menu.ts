@@ -1,8 +1,15 @@
+
 import leia from 'readline-sync'
 import { ProdutosCabelo } from './src/ProdutosCabelo';
-import { ProdutosUnha } from './src/ProdutosUnha';
+import { ProdutosUnha} from './src/ProdutosUnha'
+import { Lojacontroller } from './src/model/Controller/Lojacontroller';
 export function main () {
-    let opcao: number;
+
+    let produtos:Lojacontroller= new Lojacontroller();
+    let opcao, numero, tipo, preco ,quantidade : number
+    let nome,cor: string
+    let tiposProdutos = ["unha", "cabelo"];
+
 
 while (true) {
         console.log("*****************************************************");
@@ -37,9 +44,43 @@ while (true) {
             case 1:
                 console.log("\n\nadicionar estoque de produtos\n\n");
 
+                numero= produtos.gerarnumero()
+                produtos.visualizar()
+
+                console.log ("digite o nome do produto");
+                nome=leia.question("")
+
+                console.log ("digite o tipo de produto")
+                tipo= leia.keyInSelect(tiposProdutos,"",{cancel:false})+1;
+
+                console.log("digite o preco do produto");
+                preco=leia.questionFloat("");
+
+                console.log("digite a quantidade de produtos")
+                quantidade=leia.questionInt("")
+
+                 cor="";
+                 if (
+                 (tipo === 1 && nome.toLowerCase().includes("esmalte")) ||
+                 (tipo === 2 && nome.toLowerCase().includes("tinta"))
+                  ) {
+                  console.log("digite a cor do produto");
+                   cor = leia.question("");
+                
+                   }
+                if (tipo === 1){
+        let produtoUnha = new ProdutosUnha(numero, nome, preco, tipo, quantidade,quantidade,cor);
+        produtos.AdicionarProduto(produtoUnha);
+                }else if (tipo ===2){
+        let produtoCabelo = new ProdutosCabelo(numero, nome, preco, tipo, quantidade,quantidade,cor);
+        produtos.AdicionarProduto(produtoCabelo);
+    }
+
                 break;
             case 2:
                 console.log("\n\nListar todos os produtos em estoque\n\n");
+                produtos.listartodosProdutos();
+                console.log("\n\n");//
 
                 break;
             case 3:

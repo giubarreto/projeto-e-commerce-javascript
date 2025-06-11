@@ -61,6 +61,8 @@ public verificarfaturamento(): number {
         console.log("Tipo de produto: " + this.tipo);
         console.log("preco: " + this.preco.toFixed(2));
         console.log("produto: " + this.produto);
+        console.log("numeroId: " + this.numeroId);
+        console.log("Tipo de Unha: " + this.tipoUnha);//
 
     }
 
