@@ -1,4 +1,4 @@
-import {loja} from './Loja';
+import {loja} from '../Loja';
 export class ProdutosUnha extends loja {
    private _tipoUnha: string;
 

@@ -1,4 +1,4 @@
-import {loja } from './Loja';
+import {loja } from '../Loja';
 export class ProdutosCabelo extends loja {  
     private _tipoCabelo: string;
     constructor(numeroId: number, produto: string, preco: number, tipo: number, estoque: number,quantProdutos:number, tipoCabelo: string) {

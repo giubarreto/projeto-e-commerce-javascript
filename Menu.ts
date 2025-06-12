@@ -1,7 +1,7 @@
 
 import leia from 'readline-sync'
-import { ProdutosCabelo } from './src/ProdutosCabelo';
-import { ProdutosUnha} from './src/ProdutosUnha'
+import { ProdutosCabelo } from './src/model/ProdutosCabelo';
+import { ProdutosUnha} from './src/model/ProdutosUnha'
 import { Lojacontroller } from './src/model/Controller/Lojacontroller';
 export function main () {
 
@@ -85,10 +85,52 @@ while (true) {
                 break;
             case 3:
                 console.log("\n\nBuscar produto por Numero\n\n");
+                console.log("digite o numero do produto:")
+                numero= leia.questionInt("")
+                produtos.buscarProdutoPornumeroId(numero)
+                
 
                 break;
             case 4:
                 console.log("\n\nAtualizar produto por numero \n\n");
+
+                console.log("digite o nome do produto")
+                nome=leia.question("")
+                
+                console.log ("digite o numero do produto");
+                numero=leia.questionInt("")
+
+                let produto= produtos.buscarNoArray(numero)
+                 if (produto!= null){
+
+                console.log ("digite o tipo de produto")
+                tipo= leia.keyInSelect(tiposProdutos,"",{cancel:false})+1;
+
+                console.log("digite o preco do produto");
+                preco=leia.questionFloat("");
+
+                console.log("digite a quantidade de produtos")
+                quantidade=leia.questionInt("")
+
+                        cor = "";
+                    if (
+                (tipo === 1 && nome.toLowerCase().includes("esmalte")) ||
+                (tipo === 2 && nome.toLowerCase().includes("tinta"))
+                ) {
+                console.log("digite a cor do produto");
+                   cor = leia.question("");
+                
+                   }
+                if (tipo === 1){
+        let produtoUnha = new ProdutosUnha(numero, nome,preco, tipo, quantidade,quantidade,cor);
+        produtos.AtualizarProduto(produtoUnha);
+                }else if (tipo ===2){
+        let produtoCabelo = new ProdutosCabelo(numero, nome ,preco, tipo, quantidade,quantidade,cor);
+        produtos.AtualizarProduto(produtoCabelo);
+    }
+                 }else { console.log("produto",produtos.numero,"nao foi encontrada")
+                    
+                 } 
 
                 break;
             case 5:

@@ -1,4 +1,4 @@
-import { loja } from "../src/Loja";
+import { loja} from "../src/Loja"
 
 export interface LojaRepository {
 

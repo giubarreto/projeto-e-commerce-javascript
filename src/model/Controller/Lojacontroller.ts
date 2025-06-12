@@ -7,7 +7,13 @@ export class Lojacontroller implements LojaRepository {
 
 
     buscarProdutoPornumeroId(numeroId: number): void {
-        throw new Error("Method not implemented.");
+     let buscarProduto=this.buscarNoArray(numeroId);
+     if(buscarProduto!= null) {
+        buscarProduto.visualizar()
+        
+     }else {
+        console.log(" o produto",numeroId, "nao foi encontrado");
+     }
     }
     listartodosProdutos(): void {
         if (this.produtos.length === 0) {
@@ -19,29 +25,47 @@ export class Lojacontroller implements LojaRepository {
             };
         }
     }
-    AdicionarProduto(produto: loja): void {
-   this.produtos.push(produto);
-   console.log("Produto adicionado com sucesso!");}
+      AdicionarProduto(produto: loja): void {
+     this.produtos.push(produto);
+     console.log("Produto adicionado com sucesso!");}
 
        
     AtualizarProduto(produto: loja): void {
-        throw new Error("Method not implemented.");
-    }
+        let buscarProduto= this.buscarNoArray(produto.numeroId)
+        if(buscarProduto!= null) {
+            this.produtos[ this.produtos.indexOf(buscarProduto)]= produto
+            console.log( "o produto",produto.numeroId,"foi atualizada com sucesso");
+        }else{
+            console.log("o produto ", produto.numeroId,"nao foi encontrado para atualizacao");
+        }
+        } 
+    
     ApagarProduto(numeroId: number): void {
-        throw new Error("Method not implemented.");
+
     }
     RetirarProduto(produto: string): boolean {
-        throw new Error("Method not implemented.");
+
+        return true;
+    
     }
     AddProduto(produto: string): void {
-        throw new Error("Method not implemented.");
+    
     }
     verificarfaturamento(): number {
-        throw new Error("Method not implemented.");
+        return 0;
     }
     visualizar(): void {
-        throw new Error("Method not implemented.");
+        
     }
     public gerarnumero(): number{
     return ++ this.numero}//
+
+    buscarNoArray(numero:number):loja |null{
+        for(let produto of this.produtos) {
+            if (produto.numeroId===numero) 
+                return produto
+        }
+          return null
+    }
+
 }
