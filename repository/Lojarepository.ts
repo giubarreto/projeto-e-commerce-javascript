@@ -1,17 +1,15 @@
-import { loja} from "../src/Loja"
+import { Loja} from "../Loja"
 
 export interface LojaRepository {
 
     buscarProdutoPornumeroId(numeroId: number): void;
     listartodosProdutos(): void;
-    AdicionarProduto(produto: loja): void;
-    AtualizarProduto(produto: loja): void;
-    ApagarProduto(numeroId: number): void;
+    AdicionarProduto(produto: Loja): void;
+    AtualizarProduto(produto: Loja): void;
+    ApagarProduto(produto:Loja): void;
 
 
-
-    RetirarProduto(produto: string): boolean;
-    AddProduto(produto: string): void;
+    formasDePagamento() :string[];
     verificarfaturamento(): number;
     visualizar(): void;
 }

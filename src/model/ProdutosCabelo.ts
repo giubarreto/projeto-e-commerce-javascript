@@ -1,5 +1,6 @@
-import {loja } from '../Loja';
-export class ProdutosCabelo extends loja {  
+import { Loja } from "./Loja";
+
+export class ProdutosCabelo extends Loja {  
     private _tipoCabelo: string;
     constructor(numeroId: number, produto: string, preco: number, tipo: number, estoque: number,quantProdutos:number, tipoCabelo: string) {
         super(numeroId, produto, preco, tipo, estoque);
@@ -21,16 +22,13 @@ set tipoCabelo(tipoCabelo: string) {
             console.log("\n Estoque Insuficiente!");
             return false;
         } else {
-        this.estoque = this.quantProdutos + this.estoque; // Atualiza o estoque
+        this.estoque = this.quantProdutos + this.estoque; 
             console.log("\n Produto retirado com sucesso!");
         return true;
         }
-    }
+    
 
-    public AddProduto(produto: string): void {
-        this.produto = this.produto + this.preco;
     }
-
 
 
 

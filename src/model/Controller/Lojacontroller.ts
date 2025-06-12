@@ -1,8 +1,8 @@
-import { LojaRepository } from "../../../repository/Lojarepository";
-import { loja } from "../../Loja";
+import { LojaRepository } from "../repository/Lojarepository";
+import { Loja } from "../Loja";
 
 export class Lojacontroller implements LojaRepository {
-    private produtos: Array<loja> = new Array<loja>();
+    private produtos: Array<Loja> = new Array<Loja>();
      numero: number = 0;
 
 
@@ -25,12 +25,12 @@ export class Lojacontroller implements LojaRepository {
             };
         }
     }
-      AdicionarProduto(produto: loja): void {
+      AdicionarProduto(produto: Loja): void {
      this.produtos.push(produto);
      console.log("Produto adicionado com sucesso!");}
 
        
-    AtualizarProduto(produto: loja): void {
+    AtualizarProduto(produto: Loja): void {
         let buscarProduto= this.buscarNoArray(produto.numeroId)
         if(buscarProduto!= null) {
             this.produtos[ this.produtos.indexOf(buscarProduto)]= produto
@@ -40,27 +40,34 @@ export class Lojacontroller implements LojaRepository {
         }
         } 
     
-    ApagarProduto(numeroId: number): void {
-
+      ApagarProduto(produto: Loja): void {
+        let buscarProduto= this.buscarNoArray(produto.numeroId)
+        if(buscarProduto!=null){
+            this.produtos.splice(this.produtos.indexOf(buscarProduto),1);
+            console.log("o produto",produto.numeroId,"foi apagado com sucesso");
+        
+        }else{
+          
+          console.log("o produto0", produto.numeroId,"nao foi encontrado");
+        }
+        }
+        formasDePagamento():string[]{
+           return ["dinheiro","cartao de credito em até 6x ","cartao de debito","pix"];
     }
-    RetirarProduto(produto: string): boolean {
-
-        return true;
-    
+     verificarfaturamento(): number {
+        let total=0;
+        for(let produto of this.produtos){
+            total= total +(produto.preco*produto.quantProdutos);
+        }
+        return total;
     }
-    AddProduto(produto: string): void {
-    
-    }
-    verificarfaturamento(): number {
-        return 0;
-    }
-    visualizar(): void {
+     visualizar(): void {
         
     }
     public gerarnumero(): number{
     return ++ this.numero}//
 
-    buscarNoArray(numero:number):loja |null{
+    buscarNoArray(numero:number):Loja |null{
         for(let produto of this.produtos) {
             if (produto.numeroId===numero) 
                 return produto

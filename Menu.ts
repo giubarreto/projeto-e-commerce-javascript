@@ -22,19 +22,17 @@ while (true) {
         console.log("            2 - Listar todos os produtos em estoque  ");
         console.log("            3 - Buscar produto por Numero            ");
         console.log("            4 - Atualizar produto por numero         ");
-        console.log("            5 - formas de pagamento                  ");
-        console.log("            6 - adicionar valor aos produtos         ");                    
-        console.log("            7 - verificar faturamento                ");
-        console.log("            8 - apagar produto                       ");
-        console.log("            9 - Sair do sistema                      ");               
-        console.log("                                                     ");
+        console.log("            5 - formas de pagamento                  ");                            
+        console.log("            6 - verificar faturamento                ");
+        console.log("            7 - apagar produto                       ");
+        console.log("            8 - Sair do sistema                      ");              
         console.log("*****************************************************");
-        console.log("                                                     ");
+      
 
         console.log("Entre com a opção desejada: ");
         opcao = leia.questionInt("");
 
-        if (opcao == 9) {
+        if (opcao == 8) {
             console.log("\n!");
             sobre();
             process.exit(0);
@@ -135,18 +133,28 @@ while (true) {
                 break;
             case 5:
                 console.log("\n\nformas de pagamento  \n\n");
+                console.log(produtos.formasDePagamento());
+              
 
                 break;
+            
             case 6:
-                console.log("\n\nadicionar valor aos produtos\n\n");
+                console.log("\n\nverificar faturamento \n\n");
+                console.log(produtos.verificarfaturamento());
 
                 break;
             case 7:
-                console.log("\n\nverificar lucro \n\n");
-
-                break;
-            case 8:
                 console.log("\n\napagar produto  \n\n");
+                console.log("digite o numero do produto")
+                numero=leia.questionInt("")
+                let item =produtos.buscarNoArray(numero);
+                if (item!=null){
+                    produtos.ApagarProduto(item)
+                    console.log("produto apagado com sucesso")
+
+                }else {
+                    console.log("produto nao encontrado!")
+                }
 
                 break;
             default:

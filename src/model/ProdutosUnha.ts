@@ -1,5 +1,5 @@
-import {loja} from '../Loja';
-export class ProdutosUnha extends loja {
+import {Loja} from './Loja'
+export class ProdutosUnha extends Loja {
    private _tipoUnha: string;
 
     constructor(numeroId: number, produto: string, preco: number, tipo: number, estoque: number, quantProdutos:number ,tipoUnha: string) {

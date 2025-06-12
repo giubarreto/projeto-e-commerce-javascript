@@ -1,4 +1,4 @@
-export abstract class loja {
+export abstract class Loja {
  private _numeroId: number;
  private _produto: string;
  private _preco: number;
@@ -64,11 +64,6 @@ public get quantProdutos(): number {
         return true;
         }
     }
-
-    public AddProduto(produto: string): void {
-        this._produto = this._produto + this._preco;
-    }
-
 
 
 
