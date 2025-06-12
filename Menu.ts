@@ -2,7 +2,7 @@
 import leia from 'readline-sync'
 import { ProdutosCabelo } from './src/model/ProdutosCabelo';
 import { ProdutosUnha} from './src/model/ProdutosUnha'
-import { Lojacontroller } from './src/model/Controller/Lojacontroller';
+import { Lojacontroller } from './src/Controller/Lojacontroller';
 export function main () {
 
     let produtos:Lojacontroller= new Lojacontroller();
@@ -12,6 +12,7 @@ export function main () {
 
 
 while (true) {
+    try{
         console.log("*****************************************************");
         console.log("                                                     ");
         console.log("                Palácio das unhas                    ");
@@ -162,7 +163,15 @@ while (true) {
 
                 break;
         }
-    }
+            }catch(error){
+                if(error instanceof Error){
+             console.log("\nocorreu um erro inesperado", error.message||error);
+                } else{
+                    console.log("\nocorreu um erro inesperado", error)
+                }
+            }
+        }
+
 }
 
 

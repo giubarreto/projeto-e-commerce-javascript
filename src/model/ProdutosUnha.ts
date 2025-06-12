@@ -56,7 +56,6 @@ public verificarfaturamento(): number {
         console.log("\n\n*****************************************************");
         console.log("Dados do produto:");
         console.log("*****************************************************");
-        console.log("quantidade do  produto: " + this.quantProdutos);
         console.log("estoque: " + this.estoque);
         console.log("Tipo de produto: " + this.tipo);
         console.log("preco: " + this.preco.toFixed(2));

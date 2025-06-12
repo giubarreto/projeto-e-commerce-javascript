@@ -1,5 +1,5 @@
 import { LojaRepository } from "../repository/Lojarepository";
-import { Loja } from "../Loja";
+import { Loja } from "../model/Loja";
 
 export class Lojacontroller implements LojaRepository {
     private produtos: Array<Loja> = new Array<Loja>();

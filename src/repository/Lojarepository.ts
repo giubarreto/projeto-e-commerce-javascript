@@ -1,4 +1,4 @@
-import { Loja} from "../Loja"
+import { Loja} from "../model/Loja"
 
 export interface LojaRepository {
 
