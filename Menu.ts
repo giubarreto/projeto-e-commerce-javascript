@@ -15,7 +15,7 @@ while (true) {
     try{
         console.log("*****************************************************");
         console.log("                                                     ");
-        console.log("                Palácio das unhas                    ");
+        console.log("                Palácio das mulheres                  ");
         console.log("                                                     ");
         console.log("*****************************************************");
         console.log("                                                     ");
